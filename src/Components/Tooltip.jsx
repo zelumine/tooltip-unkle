@@ -5,12 +5,29 @@ const Tooltip = (props) => {
   l'élément est hovered ou focused */
   const [isHovered, setIsHovered] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(false);
 
   const { children } = props;
 
+  useEffect(() => {
+    console.log("is hovered?", isHovered);
+    console.log("is hovered?", isHovered);
+    if (isHovered || isFocused) setShowTooltip(true);
+    else setShowTooltip(false);
+  }, [isHovered, isFocused]);
+
   return (
     <div id="tooltip">
-      {children}
+      <div
+        onMouseOver={() => setIsHovered(true)}
+        onMouseOut={() => setIsHovered(false)}
+        onFocus={() => setIsFocused(true)}
+      > 
+        {showTooltip &&
+          <div>Coucou c'est le tooltip</div>
+        }
+        {children}
+      </div>
     </div>
   )
 }
