@@ -12,10 +12,14 @@
   background:#D3D3D3	;
   border-radius: 5px;
   padding: 10px;
-  margin: 5px 50px 10px;
+  margin: 5px auto;
   min-width: 80px;
   max-width: max-content;
   min-height: 1em;
+}
+
+.top {
+  top: -10px
 }
 
 .arrow-bottom:after {
@@ -28,5 +32,17 @@
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-top: 10px solid #D3D3D3;
+}
+
+.arrow-top:before {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  margin-left: -10px;
+  content: "";
+  display: block;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #D3D3D3;
 }
 
