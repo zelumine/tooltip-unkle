@@ -42,7 +42,6 @@ const Tooltip = (props) => {
   const getElementPosition = (event) => {
     positionRef.current = event.target;
     parentElement = positionRef.current;
-    parentElement.style.position = "sticky";
     parentPosition = parentElement.getBoundingClientRect();
     if (position === "bottom") positionStyle = `bottom: calc(${parentPosition.bottom}px + 10px);`;
     else if (position === "right" || !position) positionStyle = `
@@ -58,7 +57,7 @@ const Tooltip = (props) => {
   }
   
   return (
-    <div className="tooltip">                              {/* problème à régler : si on utilise plusieurs fois le tooltip on aura plusieurs fois le même ID */}
+    <div className="tooltip">    
       <div
         onMouseOver={(event) => {
           getElementPosition(event);
@@ -69,7 +68,7 @@ const Tooltip = (props) => {
         onBlur={() => setIsFocused(false)}          // remplace le "on focus out"
       > 
         {showTooltip &&
-          <div id="tooltip-container" style={positionStyle} className={`${tooltipPosition} arrow-${arrowPosition}`}>{text}</div>
+          <div className="tooltip-container" style={positionStyle} className={`${tooltipPosition} arrow-${arrowPosition}`}>{text}</div>
         }
         {children}
       </div>
