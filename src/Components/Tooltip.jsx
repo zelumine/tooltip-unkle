@@ -53,7 +53,7 @@ const Tooltip = (props) => {
       left: calc(${parentPosition.left}px + 10px);
     `;
     else if (position === "top") positionStyle = "top: -10px;";
-    console.log(positionStyle);
+    //console.log(positionStyle);
   }
   
   return (
@@ -68,7 +68,7 @@ const Tooltip = (props) => {
         onBlur={() => setIsFocused(false)}          // remplace le "on focus out"
       > 
         {showTooltip &&
-          <div className="tooltip-container" style={positionStyle} className={`${tooltipPosition} arrow-${arrowPosition}`}>{text}</div>
+          <div style={positionStyle} className={`tooltip-container ${tooltipPosition} arrow-${arrowPosition}`}>{text}</div>
         }
         {children}
       </div>

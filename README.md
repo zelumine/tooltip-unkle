@@ -1,5 +1,5 @@
 # Introduction
-Ce projet a été réalisé dans le cadre d'un test technique.
+Ce projet a été réalisé dans le cadre d'un test technique. J'ai intégré le composant tooltip demandé dans une app pour pouvoir le tester.
 
 ## Installation
 Pour le tester sur votre ordinateur:
@@ -8,7 +8,7 @@ Pour le tester sur votre ordinateur:
 - ```npm install```
 - puis ```npm start``` pour démarrer l'app
 
-### Difficultés
+## Difficultés
 Malgré mes nombreuses tentatives, je n'arrive pas à faire en sorte que le tooltip se positionne correctement. Il fait bouger l'élément auquel il est lié (l'input, le texte...), je n'ai pas réussi à maintenir celui-ci à sa place. Vous pourrez voir que j'ai essayé de récupérer la position de l'élément auquel le tooltip est lié avec .getBoundingClientRect() mais bien que ça récupère les bonnes informations, ça ne se place pas là où je le voudrais.
 
 ## Alternatives
