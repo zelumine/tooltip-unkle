@@ -6,43 +6,37 @@ const Tooltip = (props) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
-  let tooltipPosition, arrowPosition, parentPosition, positionStyle;
+  let tooltipPosition, arrowPosition;
 
   const { children, text, position } = props;
+  console.log(props);
 
   useEffect(() => {
-    parentPosition = document.getElementById("tooltip").getBoundingClientRect();
-    console.log("parent's position:", parentPosition); 
     if (isHovered || isFocused) setShowTooltip(true);
     else setShowTooltip(false);
   }, [isHovered, isFocused]);
-  
-  useEffect(() => {
+
     switch (position) {
       case 'top': 
         tooltipPosition = "top";
-        arrowPosition = "bottom";
+        arrowPosition = "down";
         break;
       case 'right':
         tooltipPosition = "right";
-        arrowPosition = "left";
+        arrowPosition = "to-left";
         break;
       case 'bottom':
         tooltipPosition = "bottom";
-        arrowPosition = "top";
-        positionStyle = `
-          bottom: ${parentPosition.bottom + 10} px
-        `
+        arrowPosition = "up";
         break;
       case 'left':
         tooltipPosition = "left";
-        arrowPosition = "right";
+        arrowPosition = "to-right";
         break;
       default:
-        tooltipPosition = "top";
-        arrowPosition = "bottom";
+        tooltipPosition = "right";
+        arrowPosition = "to-left";
     }
-  }, []);
   
   return (
     <div id="tooltip">                              {/* problème à régler : si on utilise plusieurs fois le tooltip on aura plusieurs fois le même ID */}
@@ -53,7 +47,7 @@ const Tooltip = (props) => {
         onBlur={() => setIsFocused(false)}          // remplace le "on focus out"
       > 
         {showTooltip &&
-          <div id="tooltip-container" style={positionStyle} className={`${tooltipPosition} arrow-${arrowPosition}`}>{text}</div>
+          <div id="tooltip-container" className={`${tooltipPosition} arrow-${arrowPosition}`}>{text}</div>
         }
         {children}
       </div>

@@ -12,13 +12,31 @@
   background:#D3D3D3	;
   border-radius: 5px;
   padding: 10px;
-  margin: 5px 50px 10px;
+  margin: 5px auto;
   min-width: 80px;
-  max-width: max-content;
+  max-width: 80vw;
   min-height: 1em;
 }
 
-.arrow-bottom:after {
+.top {
+  top: -10px;
+}
+
+.bottom {
+  bottom: -10px
+}
+
+.right {
+  float: right;
+  right: -10px;
+}
+
+.left {
+  float: left;
+  left: -10px;
+}
+
+.arrow-down:after {
   position: absolute;
   bottom: -10px;
   left: 50%;
@@ -30,3 +48,36 @@
   border-top: 10px solid #D3D3D3;
 }
 
+.arrow-up:before {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  margin-left: -10px;
+  content: "";
+  display: block;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #D3D3D3;
+}
+
+.arrow-to-left:before {
+  position: absolute;
+  content: "";
+  display: block;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #D3D3D3;
+  top: calc(50% - 10px);
+  left: -10px;
+}
+
+.arrow-to-right:before {
+  position: absolute;
+  content: "";
+  display: block;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid #D3D3D3;
+  top: calc(50% - 10px);
+  right: -10px;
+}
